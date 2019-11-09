@@ -14,9 +14,6 @@
       <template v-slot:item.body="{ item }">
         <td class="text-xs-right">{{ bodyCase(item.body) }}</td>
       </template>
-      <template v-slot:item.aaa="{ item }">
-        <td class="text-xs-right">aaaaaa</td>
-      </template>
     </v-data-table>
   </div>
 </template>
