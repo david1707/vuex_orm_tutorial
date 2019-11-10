@@ -1,7 +1,7 @@
 <template>
   <div class="basic">
-    <h1 class="text-center">Basic View</h1>
-    <v-data-table :headers="headers" :items="items" class="elevation-1">
+    <h1 class="text-center">Basic Posts View</h1>
+    <v-data-table :headers="headers" :items="posts" class="elevation-1">
       <template v-slot:item.id="{ item }">
         <td class="text-xs-right">{{ item.id}}</td>
       </template>
@@ -22,7 +22,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "basic-view",
+  name: "basic-posts-view",
   data() {
     return {
       headers: [
@@ -33,48 +33,34 @@ export default {
         },
         {
           sortable: true,
-          text: "Name",
-          value: "name"
+          text: "User ID",
+          value: "userId"
         },
         {
           sortable: true,
-          text: "Username",
-          value: "username"
+          text: "Title",
+          value: "title"
         },
         {
           sortable: true,
-          text: "Email",
-          value: "email"
-        },
-        {
-          sortable: true,
-          text: "Website",
-          value: "website"
-        },
-        {
-          sortable: true,
-          text: "Total Posts",
-          value: "total_posts"
+          text: "Body",
+          value: "body"
         }
       ]
     };
   },
   computed: {
-    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" }),
-    items() {
-      this.users.map(user => {
-        user.total_posts = this.posts.filter(post => post.userId === user.id).length;
-      });
-      return this.users
-    }
+    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" })
   },
   methods: {
     titleCase(text) {
-      return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+      return (
+        text.charAt(0).toUpperCase() + text.substr(1, 20).toLowerCase() + "..."
+      );
     },
     bodyCase(text) {
       return (
-        text.charAt(0).toUpperCase() + text.substr(1, 120).toLowerCase() + "..."
+        text.charAt(0).toUpperCase() + text.substr(1, 60).toLowerCase() + "..."
       );
     }
   }

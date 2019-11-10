@@ -55,16 +55,6 @@ export default {
       return this.users
     }
   },
-  methods: {
-    titleCase(text) {
-      return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-    },
-    bodyCase(text) {
-      return (
-        text.charAt(0).toUpperCase() + text.substr(1, 120).toLowerCase() + "..."
-      );
-    }
-  }
 };
 </script>
 
