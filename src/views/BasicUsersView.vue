@@ -1,20 +1,7 @@
 <template>
   <div class="basic">
-    <h1 class="text-center">Basic View</h1>
-    <v-data-table :headers="headers" :items="items" class="elevation-1">
-      <template v-slot:item.id="{ item }">
-        <td class="text-xs-right">{{ item.id}}</td>
-      </template>
-      <template v-slot:item.userId="{ item }">
-        <td class="text-xs-right">{{ item.userId}}</td>
-      </template>
-      <template v-slot:item.title="{ item }">
-        <td class="text-xs-right">{{ titleCase(item.title)}}</td>
-      </template>
-      <template v-slot:item.body="{ item }">
-        <td class="text-xs-right">{{ bodyCase(item.body) }}</td>
-      </template>
-    </v-data-table>
+    <h1 class="text-center">Basic Users View</h1>
+    <v-data-table :headers="headers" :items="items" class="elevation-1" />
   </div>
 </template>
 
@@ -22,7 +9,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "basic-view",
+  name: "basic-users-view",
   data() {
     return {
       headers: [
