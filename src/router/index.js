@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BasicUsersView from '../views/BasicUsersView.vue'
+import BasicPostsView from '../views/BasicPostsView.vue'
 import ORMUsersView from '../views/ORMUsersView.vue'
+import ORMPostsView from '../views/ORMPostsView.vue'
 
 Vue.use(VueRouter)
 
@@ -12,10 +14,20 @@ const routes = [
     component: BasicUsersView
   },
   {
+    path: '/basicPosts',
+    name: 'basicPosts',
+    component: BasicPostsView
+  },
+  {
     path: '/ormUsers',
     name: 'ormUsers',
     component: ORMUsersView
-  }
+  },
+  {
+    path: '/ormPosts',
+    name: 'ormPosts',
+    component: ORMPostsView
+  },
 ]
 
 const router = new VueRouter({
