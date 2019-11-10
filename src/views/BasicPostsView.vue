@@ -38,13 +38,13 @@ export default {
         },
         {
           sortable: true,
-          text: 'Writer name',
-          value: 'writerName'
+          text: "Writer name",
+          value: "writerName"
         },
         {
           sortable: true,
-          text: 'Writer username',
-          value: 'writerUserame'
+          text: "Writer username",
+          value: "writerUserame"
         },
         {
           sortable: true,
@@ -60,7 +60,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ items: "getPostsBasic" }),
+    ...mapGetters({ items: "getPostsBasic" })
   },
   methods: {
     titleCase(text) {
