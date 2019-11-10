@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import BasicView from '../views/BasicView.vue'
-import ORMView from '../views/ORMView.vue'
+import BasicUsersView from '../views/BasicUsersView.vue'
+import ORMUsersView from '../views/ORMUsersView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/basic',
-    name: 'basic',
-    component: BasicView
+    path: '/basicUsers',
+    name: 'basicUsers',
+    component: BasicUsersView
   },
   {
-    path: '/orm',
-    name: 'orm',
-    component: ORMView
+    path: '/ormUsers',
+    name: 'ormUsers',
+    component: ORMUsersView
   }
 ]
 

@@ -5,9 +5,11 @@
         <span class="mr-2">Vuex ORM Tutorial</span>
       </div>
 
-      <router-link to="/basic" class="white--text">Vuex Basic</router-link>
+      <router-link to="/basicUsers" class="white--text">Vuex Basic Users</router-link>
+      <router-link to="/basicPosts" class="white--text">Vuex Basic Posts</router-link>
 
-      <router-link to="/orm" class="white--text">Vuex ORM</router-link>
+      <router-link to="/ormUsers" class="white--text">Vuex ORM Users</router-link>
+      <router-link to="/ormPosts" class="white--text">Vuex ORM Posts</router-link>
 
       <v-btn href="http://letslearnabout.net/" target="_blank" text>
         <span class="mr-2">Let's learn about</span>
