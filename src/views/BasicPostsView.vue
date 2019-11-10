@@ -1,5 +1,5 @@
 <template>
-  <div class="basic">
+  <div class="basic-posts">
     <h1 class="text-center">Basic Posts View</h1>
     <v-data-table :headers="headers" :items="items" class="elevation-1">
       <template v-slot:item.id="{ item }">
@@ -60,14 +60,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" }),
-    items() {
-      this.posts.map(post => {
-        post.writerName = this.users.filter(user => user.id == post.userId)[0].name
-        post.writerUserame = this.users.filter(user => user.id == post.userId)[0].username
-      })
-      return this.posts
-    }
+    ...mapGetters({ items: "getPostsBasic" }),
   },
   methods: {
     titleCase(text) {
@@ -85,7 +78,7 @@ export default {
 </script>
 
 <style scoped>
-.basic {
+.basic-posts {
   width: 90%;
   margin: 0 auto;
   padding-top: 2em;

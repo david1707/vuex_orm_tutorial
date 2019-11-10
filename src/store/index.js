@@ -43,9 +43,16 @@ export default new Vuex.Store({
   },
   getters: {
     getPostsBasic(state) {
+      state.postsBasic.map(post => {
+        post.writerName = state.usersBasic.filter(user => user.id == post.userId)[0].name
+        post.writerUserame = state.usersBasic.filter(user => user.id == post.userId)[0].username
+      })
       return state.postsBasic;
     },
     getUsersBasic(state) {
+      state.usersBasic.map(user => {
+        user.total_posts = state.postsBasic.filter(post => post.userId === user.id).length;
+      });
       return state.usersBasic;
     },
     getPostsORM() {
@@ -54,7 +61,12 @@ export default new Vuex.Store({
         .get();
     },
     getUsersORM() {
-      return User.all();
+      const users = User.all()
+      const posts = Post.all()
+      users.map(user => {
+        user.total_posts = posts.filter(post => post.userId === user.id).length;
+      });
+      return users
     }
   },
   plugins: [VuexORM.install(database)]

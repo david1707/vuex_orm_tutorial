@@ -1,5 +1,5 @@
 <template>
-  <div class="basic">
+  <div class="basic-users">
     <h1 class="text-center">Basic Users View</h1>
     <v-data-table :headers="headers" :items="items" class="elevation-1" />
   </div>
@@ -47,19 +47,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" }),
-    items() {
-      this.users.map(user => {
-        user.total_posts = this.posts.filter(post => post.userId === user.id).length;
-      });
-      return this.users
-    }
+    ...mapGetters({ items: "getUsersBasic" }),
   },
 };
 </script>
 
 <style scoped>
-.basic {
+.basic-users {
   width: 90%;
   margin: 0 auto;
   padding-top: 2em;
