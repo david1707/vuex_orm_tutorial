@@ -1,7 +1,7 @@
 <template>
   <div class="basic">
     <h1 class="text-center">Basic Posts View</h1>
-    <v-data-table :headers="headers" :items="posts" class="elevation-1">
+    <v-data-table :headers="headers" :items="items" class="elevation-1">
       <template v-slot:item.id="{ item }">
         <td class="text-xs-right">{{ item.id}}</td>
       </template>
@@ -38,6 +38,16 @@ export default {
         },
         {
           sortable: true,
+          text: 'Writer name',
+          value: 'writerName'
+        },
+        {
+          sortable: true,
+          text: 'Writer username',
+          value: 'writerUserame'
+        },
+        {
+          sortable: true,
           text: "Title",
           value: "title"
         },
@@ -50,7 +60,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" })
+    ...mapGetters({ posts: "getPostsBasic", users: "getUsersBasic" }),
+    items() {
+      this.posts.map(post => {
+        post.writerName = this.users.filter(user => user.id == post.userId)[0].name
+        post.writerUserame = this.users.filter(user => user.id == post.userId)[0].username
+      })
+      return this.posts
+    }
   },
   methods: {
     titleCase(text) {
